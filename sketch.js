@@ -14,7 +14,7 @@ function preload() {
 
 
 function setup() {
-  let botao = createButton('clique aqui');
+  let botao = createButton('clique aqui, para iniciar ou mudar de voz');
   createP('Diga, em Inglês, números de 0 a 9 ou as palavras up, down, left, right, yes, no, stop, com um intervalo entre elas de 1 a dois segundos...Ao lado da palavra reconhecida, aparece o grau de confiança no reconhecimento da máquina.');
 
   soundClassifier.classify(gotResults);
@@ -40,6 +40,13 @@ function gotResults(error, results) {
   
   if (palavra == 'up') {
     palavra = 'para cima';
+  }
+
+if (palavra == 'yes') {
+    palavra = 'sim';
+  }
+if (palavra == 'no') {
+    palavra = 'nãooo';
   }
   speech.speak(palavra);
 }
